@@ -1,0 +1,187 @@
+\providecommand{\pdfxopts}{a-1b,cyrxmp}
+%\providecommand{\pdfxopts}{a-1b}
+\providecommand{\thisyear}{2021}
+\immediate\write18{rm \jobname.xmpdata}%  uncomment for Unix-based systems
+\begin{filecontents*}{\jobname.xmpdata}
+\Title{Ведомость датчики 9493, осень\textemdash\thisyear} % год поставится сам
+\Author{Прокшин Артем Николаевич}
+\Creator{pdfTeX + pdfx.sty with options \pdfxopts }
+\Subject{Ведомость посещения занятий и выполнения лабораторных работ по датчикам студентами 9493 группы, осень 2021}
+\Keywords{ведомость посещения, группа 9493, ЛЭТИ}
+\CoverDisplayDate{март \thisyear}
+\CoverDate{2021-09-04}
+\Copyrighted{True}
+\Copyright{Public Domain}
+\CopyrightURL{http://github.com/trot-t}
+\Creator{pdfTeX + pdfx.sty with options \pdfxopts }
+\end{filecontents*}
+
+
+\documentclass[a4paper,landscape,11pt]{article}
+
+\pdfcompresslevel=9
+
+\usepackage[\pdfxopts]{pdfx}[2016/03/09]
+\PassOptionsToPackage{obeyspaces}{url}
+\let\tldocrussian=1  % for live4ht.cfg
+
+
+
+%\documentclass[a4paper,11pt]{article} 
+%\usepackage[T1,T2A]{fontenc}
+\usepackage[utf8x]{inputenc}
+\usepackage[english,russian]{babel} 
+\usepackage{wrapfig}
+%\usepackage[table,xcdraw]{xcolor}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+
+\usepackage{tikz}
+\usepackage{siunitx}
+\usepackage[american,cuteinductors,smartlabels]{circuitikz}
+
+\usepackage{hyperref}
+
+\usepackage{advdate}
+%\usepackage{showframe} % для отладки позиции на странице
+\usepackage{cancel}
+
+%\setlength{\voffset}{-72pt} %отступ сверху - чтобы увидеть откомментарить \usepackage{showframe}
+\setlength{\voffset}{-56pt} %landscape
+\setlength{\topmargin}{0pt} 
+%\setlength{\headheight{1pt}
+\setlength{\headsep}{0pt}
+\setlength{\hoffset}{-222pt} %landscape
+\setlength{\marginparwidth}{0pt}
+\setlength{\textwidth}{800pt} %landscape
+\setlength{\textheight}{538pt} %landscape
+\setlength{\footskip}{-60pt}
+
+
+%\author{ Прокшин Артем \\
+%\small ЛЭТИ\\
+%\small \texttt{taybola@gmail.com}}
+
+%\date{}
+%abcdefghijklmnop
+
+
+\newcommand*\OK{&\small \ding{51}$\!\!_\circ$} % начал защищать
+\newcommand*\Ok{&\small \ding{51}$\!\!_\circ$} % начал защищатi
+\newcommand*\ok{&{\small \ding{51}}} % присутствовал
+\newcommand*\oK{&{\small \ding{51}?}} % присутствовал?
+\newcommand*\no{&{\small }} % отсутствовал
+\newcommand*\D{\tiny\ding{48}} % защита, defend
+\newcommand*\da{&{\small\ding{48}$\!\!_1$}} % защита, defend
+\newcommand*\dab{&{\small\ding{48}$\!\!^1_2$}} % защита, defend
+\newcommand*\ab{&{\small\ding{48}$\!\!^1_2$}} % защита, defend
+\newcommand*\ad{&{\small${}^1\!\!$\ding{48}$\!\!_4$}} % защита, defend
+%\newcommand*\ab{&{\small\ding{48}$\!\!^1_2$}} % защита, defend
+\newcommand*\bc{&{\small\ding{48}$\!\!^2_3$}} % защита, defend
+\newcommand*\dabc{&{\small\ding{48}$\!\!^1_{23}$}} % защита, defend
+\newcommand*\dabcd{&{\small\ding{48}$\!\!^{12}_{34}$}} % защита, defend
+\newcommand*\ac{&{\small\ding{48}$\!\!^1_{23}$}} % защита, defend
+\newcommand*\db{&{\small\ding{48}$\!\!_2$}} % защита, defend
+\newcommand*\dc{&{\small\ding{48}$\!\!_3$}} % защита, defend
+\newcommand*\dd{&{\small\ding{48}$\!\!_4$}} % защита, defend
+\newcommand*\bd{&{\small${}^2\!\!$\ding{48}$\!\!^3_{4}$}} % защита, defend
+\newcommand*\de{&{\small\ding{48}$\!\!_5$}} % защита, defend
+\newcommand*\dE{&{\small${}^4\!\!\!$\ding{48}$\!\!_5$}} % защита, defend
+\newcommand*\cd{&{\small\ding{48}$\!\!^3_4$}} % защита, defend
+\newcommand*\dg{&{\small\ding{48}$\!\!_6$}} % защита, defend
+\newcommand*\fg{&{\small${}^6\!\!$\ding{48}$\!\!_7$}} % защита, defend
+\newcommand*\dH{&{\small\ding{48}$\!\!_8$}} % защита, defend
+\newcommand*\gh{&{\small\ding{48}$\!\!^7_8$}} % защита, defend
+\newcommand*\fh{&{\small\ding{48}$\!\!^7_{89}$}} % защита, defend 
+\newcommand*\ce{&{\small${}^3\!\!$\ding{48}$\!\!_5$}} % защита, defend
+\newcommand*\ef{&{\small${}^5\!\!$\ding{48}$\!\!_6$}} % защита, defend
+%\newcommand*\dh{&{\small\ding{48}$\!\!_8$}} % защита, defend
+\newcommand*\di{&{\small\ding{48}$\!\!_9$}} % защита, defend
+\newcommand*\cdef{&{\small ${}^2_4\!\!$\ding{48}$\!\!^{3}_{5}$}} % защита, defend
+\newcommand*\cde{&{\small ${}^2\!\!$\ding{48}$\!\!^{3}_{5}$}} % защита, defend
+\newcommand*\efg{&{\small ${}^5\!\!$\ding{48}$\!\!^{6}_{7}$}} % защита, defend
+\newcommand*\befgh{&{\small ${}_2^5\!\!$\ding{48}$\!\!^{6}_{78}$}} % защита, defend
+\newcommand*\Dh{&{\small${}^4\!\!$\ding{48}$\!\!_8$}} % защита, defend
+\newcommand*\cfg{&{\small ${}^3\!\!$\ding{48}$\!\!^{6}_{7}$}} % защита, defend
+\newcommand*\fgh{&{\small ${}^6\!\!$\ding{48}$\!\!^{7}_{8}$}} % защита, defend
+\newcommand*\bce{&{\small ${}^2\!\!$\ding{48}$\!\!^{3}_{5}$}} % защита, defend
+\newcommand*\dO{&{\small\ding{48}$\!\!_{15}$}}
+\newcommand*\Skip{\noindent\rule{0.3cm}{0.9pt}}
+
+
+\begin{document}
+%\thispagestyle{empty}
+% or
+\pagenumbering{gobble}
+%\AdvanceDate[-1] % печатаю в субботу а нужна пятница
+%\begin{center}\today\end{center} % не до даты с 30 студентами
+\vspace*{1\baselineskip} %landscape
+\vspace{-0.9cm}
+%\begin{table} \centering 
+\newcommand*{\CS}{9pt} % ширина колонки
+\begin{tabular}{p{7pt}|l|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}|p{\CS}}
+%\multicolumn{16}{c}{График выполнения лабораторных работ студентами 8871 группы} \\ 
+\multicolumn{11}{c}{Ведомость посещения занятий по датчикам студентами 9493 группы} \\
+\toprule 
+&&&&&&&&&&\\
+&&&&&&&&&&\\
+&&&&&&&&&&\\
+&&&&&&&&&&\\
+&&&&&&&&&&\\
+&&&&&&&&&&\\
+&&\rotatebox{90}{\rlap{\small 4 сентября}}
+&\rotatebox{90}{\rlap{\small 18 сентября}}
+&\rotatebox{90}{\rlap{\small 2 октября }}
+&\rotatebox{90}{\rlap{\small 16 октября }}
+&\rotatebox{90}{\rlap{\small 30 октября }}
+&\rotatebox{90}{\rlap{\small 13 ноября }}
+&\rotatebox{90}{\rlap{\small 27 ноября }}
+&\rotatebox{90}{\rlap{\small 11 декабряя }}
+&\rotatebox{90}{\rlap{\small 25 декабря }}
+%&\rotatebox{90}{\rlap{\small 24 апреля }}
+%&\rotatebox{90}{\rlap{\small 15 мая}}
+%&\rotatebox{90}{\rlap{\small 29 мая }} 
+\\
+% commands vi to copy/paste D :+19 ->>> p :-18 :w
+\midrule
+\,& Аверкиева Светлана Алексеевна  \ok\\
+\,& Большова Екатерина Алексеевна  \ok\\
+\,& Варзопов Сергей Эдуардович     \ok\\
+\,& Викторов Артем Дмитриевич      \ok\\
+\,& Зиняков Даниил                 \ok\\
+\midrule                                          
+\,& Каменко Денис Валерьевич       \ok\\
+\,& Керимов Мовcар Мухтарович      \ok\\
+\,& Курбатов Владимир Игоревич     \ok\\
+\,& Мазулевский Михаил Даниилович  \ok\\
+\,& Мисуно Владислав Юрьевич       \ok\\
+\midrule                                          
+\,& Подопригора Вадим Евгеньевич   \ok\\
+\,& Починков Николай Дмитриевич    \ok\\
+\,& Саппо Александр Алексеевич     \ok\\
+\,& Сигаев Виталий Сергеевич       \ok\\
+\,& Чернов Даниил Сергеевич        \ok\\
+\midrule
+\,& Шишкина Карина Валерьевна      \ok\\
+\,& Ярошук Владислав Андреевич     \ok\\
+\bottomrule
+\end{tabular} 
+
+\newpage
+%
+
+
+\newpage
+%
+\begin{tabular}{l|llccccccccccccc}
+\multicolumn{10}{c}{выполнение лабораторнах работ по датчикам, 9493 группа} \\
+\toprule
+&&Л1&Л1& Л2&Л2& Л3&Л3& Л4&Л4 &Л5&Л5& Л6&Л6\\
+\midrule
+\bottomrule
+\end{tabular}
+
+
+\end{document}
